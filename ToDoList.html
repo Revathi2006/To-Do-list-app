@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+            body{
+
+                background-color: aqua;
+                margin:0;
+            }
+            .Main{
+
+                width:50vw;
+                height:50vh;
+                background-color: pink;
+                position:relative;
+                left:25%;
+                top:25%;
+                margin-top:25vh;
+
+                text-align:center;
+                font-size:x-large;
+                overflow-y:scroll;
+
+            }
+            h1{
+              font-size: 150px;        
+              color: black;
+             font-weight: bold;
+             font-family: Arial, sans-serif;
+           }
+
+            #todoid{
+                
+                width: 20vw;
+                height:100px;
+                font-size:50px;
+                align-items: center;
+                border-radius: 50px;
+                
+
+                
+
+            }
+            button{
+
+                width: 15vw;
+                height:3vh;
+                border-radius:50px;
+                font-size:50px;
+                padding: 12px;
+                margin-top:30px;
+                background-color: blue;
+
+            }
+            ::placeholder{
+
+                font-size:50px;
+            }
+           .remove{
+               
+               width: 5vw;
+                height:3vh;
+                border-radius:50px;
+                font-size:50px;
+                padding: 12px;
+                margin-top:5px;
+                background-color: red;
+               
+                margin-left:auto;
+                margin-bottom: 5px;
+
+            
+                
+                
+
+           }
+           .tasklist{
+
+               font-size: 50px;
+               font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+               display:flex;
+               justify-content: flex-start;
+               align-items: center;
+               padding: 10px;
+               flex:1;
+               
+           }
+           #subdiv1{
+
+               background-color: cadetblue;
+        
+                align-items:center;
+                width:40%;
+                height:3vh;
+                margin-left:30%;
+                display:flex;
+                justify-content: space-between;
+                padding:10px;
+                border-radius: 50px;;
+                
+                margin-top:20px;
+                
+                
+                
+
+           }
+        </style>
+        <script>
+
+            function addToDo(){
+
+                let taskvalue=document.getElementById('todoid').value;
+                if(taskvalue==""){
+
+                   alert("Enter task first!!");
+
+                   return;
+                
+                }
+                 let taskstore=document.createElement('div');
+                let removebutton=document.createElement('button');
+
+                 taskstore.className="tasklist";
+                removebutton.className="remove";
+                let tasknew=document.createElement('p');
+                tasknew.innerText=taskvalue;
+
+                taskstore.appendChild(tasknew);
+                 taskstore.appendChild(removebutton);
+
+                let subdiv=document.createElement('div');
+                subdiv.appendChild(taskstore);
+                subdiv.id='subdiv1';
+                removebutton.innerText="Remove";
+                let Main=document.getElementsByClassName('Main')[0];
+                Main.appendChild(subdiv);
+                removebutton.onclick=function(){
+
+                    document.getElementById('subdiv1').remove();
+                }
+                
+            }
+
+
+        </script>
+
+
+    </head>
+    <body>
+
+        <div class="Main">
+
+            <h1>To Do List</h1>
+            <input type="text" id="todoid" placeholder="Enter task"><br>
+
+            <button onclick="addToDo()">Add task</button>
+
+
+        </div>
+       
+
+
+    </body>
+</html>
